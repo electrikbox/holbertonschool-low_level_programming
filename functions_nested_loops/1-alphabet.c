@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * print_alphabet - it's pretty obvious no ?
+ *
+ * Return: no return
+ */
 void print_alphabet(void)
 {
 	int c = 97;
