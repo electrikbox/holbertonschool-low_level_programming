@@ -10,15 +10,15 @@
 
 void print_diagonal(int n)
 {
-	int start;
+	int a, b;
 
-	if (n > 0)
+	for (a = 0; a < n; a++)
 	{
-		for (start = 0; start < n; start++)
+		for (b = 0; b < a; b++)
 		{
 			_putchar(' ');
 		}
 		_putchar(92);
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
