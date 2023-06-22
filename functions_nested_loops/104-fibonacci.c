@@ -5,20 +5,26 @@
  *
  * Return: Always 0.
  */
-
 int main(void)
 {
-	int i, n;
+	int i;
 	unsigned long num1, num2, sum;
 
-	num1 = 0;
-	num2 = 1;
+	num1 = 1;
+	num2 = 2;
 
 	for (i = 1; i <= 98; i++)
 	{
+		printf("%lu", num1);
+
+		if (i != 98)
+		{
+			printf(", ");
+		}
 		sum = num1 + num2;
 		num1 = num2;
 		num2 = sum;
 	}
+	putchar('\n');
 	return (0);
 }
