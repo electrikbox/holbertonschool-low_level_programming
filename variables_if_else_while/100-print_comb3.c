@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
 	int loop, num;
@@ -9,11 +14,12 @@ int main(void)
 		for (num  = loop + 1; num < 10; num++)
 		{
 			putchar(loop + '0');
-                        putchar(num + '0');
-                        if (loop <  8 && num < 10)
+			putchar(num + '0');
+
+			if (loop <  8 && num < 10)
 			{
 				putchar(',');
-                        	putchar(' ');
+				putchar(' ');
 			}
 			else
 			{
