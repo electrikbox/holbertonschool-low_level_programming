@@ -10,8 +10,11 @@ int main(void)
 		{
 			putchar(loop + '0');
                         putchar(num + '0');
-                        putchar(',');
-                        putchar(' ');
+                        if (loop <  8 && num < 10)
+			{
+				putchar(',');
+                        	putchar(' ');
+			}
 		}
 	}
 	return (0);
