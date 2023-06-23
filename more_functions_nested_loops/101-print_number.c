@@ -11,10 +11,11 @@ void print_number(int n)
 {
 	int length, temp, divisor, i, digit;
 
-	if (n == 0)
+	if (n == INT_MIN)
 	{
-		_putchar('0');
-		return;
+		_putchar('-');
+		_putchar('2');
+		n = 147483648;
 	}
 	if (n < 0)
 	{
