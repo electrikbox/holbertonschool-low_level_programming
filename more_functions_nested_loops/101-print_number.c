@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * print_number - print number
+ *
+ * @n: given int
+ *
+ * Return: no return.
+ */
 void print_number(int n)
 {
 	if (n < 0)
