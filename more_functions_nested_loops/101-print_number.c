@@ -21,8 +21,6 @@ void print_number(int n)
 		_putchar('-');
 		n = -n;
 	}
-	if (-n == INT_MIN)
-		n = 2147483648;
 
 	/* get n lenght */
 	length = 0;
