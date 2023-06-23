@@ -5,26 +5,49 @@
  *
  * @n: given int
  *
- * Return: no return.
+ * Return : no return
  */
+
 void print_number(int n)
 {
+	int length, temp, divisor, i, digit;
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return;
+	}
+
 	if (n < 0)
 	{
 		_putchar('-');
 		n = -n;
 	}
-	if (n > 999)
+
+	/* get n lenght */
+	length = 0;
+	temp = n;
+
+	while (temp != 0)
 	{
-		_putchar(n / 1000 + '0');
+		temp /= 10;
+		length++;
 	}
-	if (n > 99)
+
+	/* get higher diviser factor to get all digit: '/ 1000' '/ 100' etc */
+	divisor = 1;
+
+	for (i = 1; i < length; i++)
 	{
-		_putchar((n / 100) % 10 + '0');
+		divisor *= 10;
 	}
-	if (n > 9)
+
+	/* print digit, divide factor per 10 to have the next digit at next loop */
+	while (divisor != 0)
 	{
-		_putchar((n / 10) % 10 + '0');
+		digit = n / divisor;
+		n %= divisor;
+		divisor /= 10;
+		_putchar(digit + '0');
 	}
-	_putchar(n % 10 + '0');
 }
