@@ -7,7 +7,6 @@
  *
  * Return : no return
  */
-
 void print_number(int n)
 {
 	int length, temp, divisor, i, digit;
@@ -17,17 +16,17 @@ void print_number(int n)
 		_putchar('0');
 		return;
 	}
-
 	if (n < 0)
 	{
 		_putchar('-');
 		n = -n;
 	}
+	if (-n == INT_MIN)
+		n = 2147483648;
 
 	/* get n lenght */
 	length = 0;
 	temp = n;
-
 	while (temp != 0)
 	{
 		temp /= 10;
@@ -36,7 +35,6 @@ void print_number(int n)
 
 	/* get higher diviser factor to get all digit: '/ 1000' '/ 100' etc */
 	divisor = 1;
-
 	for (i = 1; i < length; i++)
 	{
 		divisor *= 10;
