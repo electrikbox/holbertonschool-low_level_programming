@@ -26,17 +26,12 @@ int _atoi(char *s)
 
 	while (s[i] >= '0' && s[i] <= '9')
 	{
-		if ((result < INT_MIN / 10) || (result == INT_MIN / 10 && (s[i] - '0') > -(INT_MIN % 10)))
-		{
-			overflow = 1;
-			break;
-		}
-		result = result * 10 + (s[i] - '0');
+		if (result * 10 + (s[i] - '0') < INT_MIN)
+			result = INT_MIN;
+		else
+			result = result * 10 + (s[i] - '0');
 		i++;
 	}
 
-	if (overflow)
-		return (INT_MIN);
-	else
-		return (sign * result);
+	return (sign * result);
 }
