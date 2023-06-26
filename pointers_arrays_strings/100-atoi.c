@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "main.h"
+#include <limits.h>
 
 /**
  * _atoi - convert char to int
@@ -14,6 +15,7 @@ int _atoi(char *s)
 	int result = 0;
 	int sign = 1;
 	int i = 0;
+	int overflow = 0;
 
 	while (s[i] && !(s[i] >= '0' && s[i] <= '9'))
 	{
@@ -24,9 +26,17 @@ int _atoi(char *s)
 
 	while (s[i] >= '0' && s[i] <= '9')
 	{
+		if ((result < INT_MIN / 10) || (result == INT_MIN / 10 && (s[i] - '0') > -(INT_MIN % 10)))
+		{
+			overflow = 1;
+			break;
+		}
 		result = result * 10 + (s[i] - '0');
 		i++;
 	}
 
-	return (sign * result);
+	if (overflow)
+		return (INT_MIN);
+	else
+		return (sign * result);
 }
