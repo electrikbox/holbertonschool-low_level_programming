@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strlen - give the array lenght
@@ -32,11 +33,7 @@ void puts_half(char *str)
 	int index = 0;
 
 	lenght = _strlen(str);
-
-	if (lenght % 2 == 0)
-		half = lenght / 2;
-	else
-		half = (lenght - 1) / 2;
+	half = (lenght - 1) / 2 + 1;
 
 	while (*str != '\0')
 	{
