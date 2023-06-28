@@ -8,15 +8,16 @@
 
 char *leet(char *s)
 {
-	char letter[] = "aeotlAEOTL";
+	char letterMin[] = "aeotl";
+	char letterMax[] = "AEOTL";
 	char number[] = "43071";
 	int i, j;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; letter[j] != '\0'; j++)
+		for (j = 0; j < 5; j++)
 		{
-			if (letter[j] == s[i] || letter[j + 5] == s[i])
+			if (letterMin[j] == s[i] || letterMax[j] == s[i])
 			{
 				s[i] = number[j];
 				break;
