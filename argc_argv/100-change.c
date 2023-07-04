@@ -12,12 +12,16 @@ int main(int argc, char *argv[])
 {
 	int cents[6] = {25, 10, 5, 2, 1};
 	int result = 0;
-	int arg = atoi(argv[1]);
+	int arg;
 	int i, j;
 
-	if (argc != 2)
+	if (argc == 2 && atoi(argv[1]) > 0)
 	{
-		printf("Error");
+		arg = atoi(argv[1]);
+	}
+	else
+	{
+		printf("Error\n");
 		return (1);
 	}
 
