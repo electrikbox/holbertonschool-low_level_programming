@@ -15,15 +15,18 @@ int main(int argc, char *argv[])
 	int arg;
 	int i, j;
 
-	if (argc == 2 && atoi(argv[1]) > 0)
-	{
-		arg = atoi(argv[1]);
-	}
-	else
+	if (argc < 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
+
+	if (atoi(argv[1]) <= 0)
+	{
+		return (0);
+	}
+
+	arg = atoi(argv[1]);
 
 	while (arg != 0)
 	{
