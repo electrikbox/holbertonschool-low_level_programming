@@ -37,5 +37,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r);
 void set_string(char **s, char *to);
 void _puts_recursion(char *s);
 char *create_array(unsigned int size, char c);
+char *_strdup(char *str);
 
 #endif
