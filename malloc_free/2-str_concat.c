@@ -89,6 +89,8 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 != NULL)
 		_strcpy(newS, s1);
+	else
+		newS[0] = '\0';
 	if (s2 != NULL)
 		_strcat(newS, s2);
 
