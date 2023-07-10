@@ -20,12 +20,31 @@ int _strlen(char *s)
 }
 
 /**
+ * _strcpy - copy string from src to dest
+ * @dest: destination
+ * @src: source
+ * Return: return destination
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+/**
  * _strcat - concatenate strings
  * @dest: to
  * @src: from
  * Return: return concatenate string
  */
-
 char *_strcat(char *dest, char *src)
 {
 	int i = 0, j = 0;
@@ -55,17 +74,23 @@ char *_strcat(char *dest, char *src)
 char *str_concat(char *s1, char *s2)
 {
 	char *newS;
+	size_t s1_len, s2_len;
 
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
 
-	newS = malloc(_strlen(s1) + (_strlen(s2) + 1));
+	s1_len = (s1 == NULL) ? 0 : _strlen(s1);
+	s2_len = (s2 == NULL) ? 0 : _strlen(s2);
+
+	newS = malloc(s1_len + s2_len + 1);
 
 	if (newS == NULL)
 		return (NULL);
 
-	_strcat(newS, s1);
-	_strcat(newS, s2);
+	if (s1 != NULL)
+		_strcpy(newS, s1);
+	if (s2 != NULL)
+		_strcat(newS, s2);
 
 	return (newS);
 }
