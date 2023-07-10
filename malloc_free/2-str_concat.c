@@ -76,9 +76,6 @@ char *str_concat(char *s1, char *s2)
 	char *newS;
 	size_t s1_len, s2_len;
 
-	if (s1 == NULL && s2 == NULL)
-		return (NULL);
-
 	s1_len = (s1 == NULL) ? 0 : _strlen(s1);
 	s2_len = (s2 == NULL) ? 0 : _strlen(s2);
 
@@ -89,8 +86,6 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 != NULL)
 		_strcpy(newS, s1);
-	else
-		newS[0] = '\0';
 	if (s2 != NULL)
 		_strcat(newS, s2);
 
