@@ -30,8 +30,8 @@ int _strlen(char *s)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *newArray;
-	size_t s1_len;
-	size_t s2_len;
+	unsigned int s1_len;
+	unsigned int s2_len;
 	unsigned int i, j;
 
 	s1_len = (s1 == NULL) ? 0 : _strlen(s1);
