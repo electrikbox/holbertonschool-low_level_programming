@@ -5,7 +5,7 @@
 /**
  * argstostr - concatenate args
  * @ac: argv lenght
- * @av: args strings 
+ * @av: args strings
  * Return: new array.
  */
 char *argstostr(int ac, char **av)
