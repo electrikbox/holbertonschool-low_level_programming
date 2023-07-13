@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
 * _realloc - realloc memory
@@ -12,30 +13,33 @@
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	if (ptr == NULL)
-	{
-		ptr = malloc(new_size);
-		return (ptr);
-	}
+	void *new_ptr;
 
-	if (new_size > old_size)
-	{
-		free(ptr);
-		ptr = malloc(sizeof(unsigned int) * new_size);
-	}
-	if (new_size == old_size)
-		return (ptr);
+    if (ptr == NULL)
+    {
+        ptr = malloc(new_size);
+        return (ptr);
+    }
 
-	if (ptr == NULL)
-	{
-		ptr = malloc(sizeof(unsigned int) * new_size);
-	}
+    if (new_size == 0)
+    {
+        free(ptr);
+        return (NULL);
+    }
 
-	if (new_size == 0 && ptr != NULL)
-	{
-		free(ptr);
-		return (NULL);
-	}
+    if (new_size <= old_size)
+    {
+        return (ptr);
+    }
 
-	return (ptr);
+    new_ptr = malloc(new_size);
+
+	if (new_ptr == NULL)
+        return (NULL);
+
+    memcpy(new_ptr, ptr, old_size);
+
+    free(ptr);
+
+    return (new_ptr);
 }
