@@ -38,5 +38,6 @@ void set_string(char **s, char *to);
 void _puts_recursion(char *s);
 
 void print_name(char *name, void (*f)(char *));
+void array_iterator(int *array, size_t size, void (*action)(int));
 
 #endif
