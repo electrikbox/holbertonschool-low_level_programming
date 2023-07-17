@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 
 	if (argc != 4)
 	{
-		printf("Error 98\n");
+		printf("Error\n");
 		exit(98);
 	}
 
@@ -26,13 +26,13 @@ int main(int argc, char **argv)
 
 	if ((calc == NULL) || (argv[2][1] != '\0'))
 	{
-		printf("Error 99\n");
+		printf("Error\n");
 		exit(99);
 	}
 
-	if ((*argv[2] == '/' || *argv[2] == '%') && (num1 == '0' || num2 == '0'))
+	if ((*argv[2] == '/' || *argv[2] == '%') && (num1 == 0 || num2 == 0))
 	{
-		printf("Error 100\n");
+		printf("Error\n");
 		exit(100);
 	}
 
