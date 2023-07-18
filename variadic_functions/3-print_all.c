@@ -1,5 +1,11 @@
 #include "variadic_functions.h"
 
+typedef struct types
+{
+	char argType;
+	void (*func)(va_list);
+} charTypes;
+
 /**
  * print_char - printf if arg is a char
  * @args: given arg
