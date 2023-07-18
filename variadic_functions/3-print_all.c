@@ -1,11 +1,5 @@
 #include "variadic_functions.h"
 
-typedef struct types
-{
-	char argType;
-	void (*func)(va_list);
-} charTypes;
-
 /**
  * print_char - printf if arg is a char
  * @args: given arg
@@ -59,7 +53,7 @@ void print_all(const char * const format, ...)
 	unsigned int index1 = 0, index2 = 0;
 	const char *separator = "";
 
-	charTypes types[] = {
+	charTypes cTypes[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
@@ -73,12 +67,12 @@ void print_all(const char * const format, ...)
 	{
 		index2 = 0;
 
-		while (types[index2].argType != '\0')
+		while (cTypes[index2].argType != '\0')
 		{
-			if (format[index1] == types[index2].argType)
+			if (format[index1] == cTypes[index2].argType)
 			{
 				printf("%s", separator);
-				types[index2].func(args);
+				cTypes[index2].func(args);
 				separator = ", ";
 			}
 			index2++;
