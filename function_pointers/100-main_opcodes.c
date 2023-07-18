@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * main - print the opcode of main function
+ * @argc: argv len
+ * @argv: arguments
+ * Return: opcodes
+*/
 int main(int argc, char **argv)
 {
 	int i, num;
