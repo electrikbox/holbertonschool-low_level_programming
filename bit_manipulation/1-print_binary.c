@@ -6,26 +6,19 @@
  */
 void print_binary(unsigned long int n)
 {
-	int size = sizeof(n) * 8 - 1;
-	int firstOneFound = 0;
-	unsigned long int mask;
+	int bitsCount = 0;
+	unsigned long int temp = n, bitVal;
 
-	while (size >= 0)
+	while (temp >>= 1)
+		bitsCount++;
+
+	for (;bitsCount >= 0; bitsCount--)
 	{
-		mask = 1UL << size;
+		bitVal = (n >> bitsCount) & 1;
 
-		if ((n & mask) != 0)
-		{
+		if (bitVal == 1)
 			putchar('1');
-			firstOneFound = 1;
-		}
-		else if (firstOneFound)
-		{
+		else
 			putchar('0');
-		}
-		size--;
 	}
-
-	if (!firstOneFound)
-		putchar('0');
 }
