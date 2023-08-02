@@ -12,7 +12,7 @@ void print_binary(unsigned long int n)
 	while (temp >>= 1)
 		bitsCount++;
 
-	for (;bitsCount >= 0; bitsCount--)
+	for (; bitsCount >= 0; bitsCount--)
 	{
 		bitVal = (n >> bitsCount) & 1;
 
