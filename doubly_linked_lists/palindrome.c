@@ -23,9 +23,6 @@ int main(void)
 {
 	int i, j, result, largestPalindrom = 0;
 
-    if (!result)
-        return (0);
-
     for (i = 100; i < 1000; i++)
         for (j = i; j < 1000; j++)
         {
@@ -38,3 +35,4 @@ int main(void)
 
 	return (0);
 }
+
