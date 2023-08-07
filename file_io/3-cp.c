@@ -39,10 +39,10 @@ int main(int argc, char **argv)
 	{
 		if (write(copy, buffer, readFile) != readFile || copy < 0)
 			printError("Error: Can't write to", argv[2], 99);
-
-		if (readFile < 0)
-			printError("Error: Can't read from file", argv[1], 98);
 	}
+
+	if (readFile < 0)
+		printError("Error: Can't read from file", argv[1], 98);
 
 	if (close(file) < 0)
 	{
