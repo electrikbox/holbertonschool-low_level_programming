@@ -11,11 +11,11 @@ size_t read_textfile(const char *filename, size_t letters)
 	int file, readFile, writeFile;
 	char *buffer;
 
-	if (filename == NULL)
+	if (filename == 0)
 		return (0);
 
 	file = open(filename, O_RDONLY);
-	if (file == NULL)
+	if (file == 0)
 		return (0);
 
 	buffer = malloc(letters * sizeof(filename));
@@ -26,7 +26,7 @@ size_t read_textfile(const char *filename, size_t letters)
 	}
 
 	readFile = read(file, buffer, letters);
-	if (readFile == NULL)
+	if (readFile == 0)
 	{
 		free(buffer);
 		close(file);
