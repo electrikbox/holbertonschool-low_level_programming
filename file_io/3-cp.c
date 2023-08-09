@@ -36,10 +36,8 @@ int main(int argc, char **argv)
 	copy = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	while ((readFile = read(file, buffer, 1024)) > 0)
-	{
 		if (write(copy, buffer, readFile) != readFile || copy < 0)
 			printError("Error: Can't write to", argv[2], 99);
-	}
 
 	if (readFile < 0)
 		printError("Error: Can't read from file", argv[1], 98);
