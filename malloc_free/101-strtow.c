@@ -4,6 +4,22 @@
 #include <string.h>
 
 /**
+ * isSeparator - check if char is a separator from array
+ * @c: given char
+ * Return: true or false (1 or 0)
+*/
+int isSeparator(char c)
+{
+	char sep[] = " /";
+	int i;
+
+	for (i = 0; sep[i] != '\0'; i++)
+		if (c == sep[i])
+			return (1);
+	return (0);
+}
+
+/**
  * wordCount - count word len
  * @str: given string
  * Return: word len
@@ -16,7 +32,7 @@ int wordCount(char *str)
 		return (0);
 
 	for (i = 0; str[i] != '\0'; i++)
-		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
+		if (!isSeparator(str[i]) && (i == 0 || isSeparator(str[i - 1])))
 			count++;
 
 	return (count);
@@ -30,8 +46,8 @@ int wordCount(char *str)
 char **strtow(char *str)
 {
 	char **words;
-	int i, iCopy, j = 0, len, word_len;
-	int letterFound = 0;
+	/* sPos = str position - wPos = word position - aPos = array position*/
+	int sPos, wPos, aPos = 0, count, wordLen, letterFound = 0;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
@@ -40,33 +56,32 @@ char **strtow(char *str)
 	if (words == NULL)
 		return (NULL);
 
-	for (i = 0, len = 0; str[i] != '\0'; i++, len++)
+	for (sPos = 0; str[sPos] != '\0'; sPos++)
 	{
-		if (str[i] != ' ' && (len == 0 || str[i - 1] == ' '))
+		if (!isSeparator(str[sPos]) && (sPos == 0 || isSeparator(str[sPos - 1])))
 		{
-			word_len = 0;
+			wordLen = 0;
 			letterFound = 1;
 
-			for (iCopy = i; str[iCopy] != ' ' && str[iCopy] != '\0'; iCopy++)
-				word_len++;
+			for (wPos = sPos; !isSeparator(str[wPos]) && str[wPos] != '\0'; wPos++)
+				wordLen++;
 
-			words[j] = malloc((word_len + 1) * sizeof(char));
-			if (words[j] == NULL)
+			words[aPos] = malloc((wordLen + 1) * sizeof(char));
+			if (words[aPos] == NULL)
 			{
-				for (iCopy = 0; iCopy < j; iCopy++)
-					free(words[iCopy]);
+				for (count = 0; count < aPos; count++)
+					free(words[count]);
 				free(words);
 				return (NULL);
 			}
-
-			strncpy(words[j], &str[i], word_len);
-			words[j][word_len] = '\0';
-			j++;
+			strncpy(words[aPos], &str[sPos], wordLen);
+			words[aPos][wordLen] = '\0';
+			aPos++;
 		}
 	}
 	if (letterFound == 0)
 		return (NULL);
 
-	words[j] = NULL;
+	words[aPos] = NULL;
 	return (words);
 }

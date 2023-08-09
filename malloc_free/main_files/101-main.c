@@ -28,7 +28,7 @@ int main(void)
     char **tab;
     int i;
 
-    tab = strtow("      Best School         #cisfun      ");
+    tab = strtow("////hello///", '/');
     if (tab == NULL)
         return (0);
 
