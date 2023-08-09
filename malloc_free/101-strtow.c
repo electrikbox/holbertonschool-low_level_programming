@@ -32,7 +32,7 @@ char **strtow(char *str)
 	char **words;
 	int i, iCopy, j = 0, len, word_len;
 
-	if (str == NULL || *str == '\0')
+	if (str == NULL || *str == '\0' || *str == " ")
 		return (NULL);
 
 	words = malloc((wordCount(str) + 1) * sizeof(char *));
