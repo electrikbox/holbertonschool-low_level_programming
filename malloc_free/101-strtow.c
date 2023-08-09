@@ -64,6 +64,9 @@ char **strtow(char *str)
 			j++;
 		}
 	}
+	if (letterFound == 0)
+		return (NULL);
+
 	words[j] = NULL;
 	return (words);
 }
