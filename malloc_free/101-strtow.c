@@ -41,9 +41,6 @@ char **strtow(char *str)
 
 	for (i = 0, len = 0; str[i] != '\0'; i++, len++)
 	{
-		if (str[i] == ' ' && str[i + 1] == '\0')
-			return (NULL);
-
 		if (str[i] != ' ' && (len == 0 || str[i - 1] == ' '))
 		{
 			word_len = 0;
