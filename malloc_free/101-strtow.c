@@ -31,6 +31,7 @@ char **strtow(char *str)
 {
 	char **words;
 	int i, iCopy, j = 0, len, word_len;
+	int letterFound = 0;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
@@ -44,6 +45,7 @@ char **strtow(char *str)
 		if (str[i] != ' ' && (len == 0 || str[i - 1] == ' '))
 		{
 			word_len = 0;
+			letterFound = 1;
 
 			for (iCopy = i; str[iCopy] != ' ' && str[iCopy] != '\0'; iCopy++)
 				word_len++;
