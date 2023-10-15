@@ -28,7 +28,7 @@ int main(void)
     char **tab;
     int i;
 
-    tab = strtow("////hello///", '/');
+    tab = strtow("////hello world//   hey /");
     if (tab == NULL)
         return (0);
 

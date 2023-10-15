@@ -6,7 +6,7 @@
 */
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned long int Index;
+	unsigned long int index;
 	int printed = 0;
 	hash_node_t *currentNode;
 
@@ -15,9 +15,9 @@ void hash_table_print(const hash_table_t *ht)
 
 	putchar('{');
 
-	for (Index = 0; Index < ht->size; Index++)
+	for (index = 0; index < ht->size; index++)
 	{
-		currentNode = ht->array[Index];
+		currentNode = ht->array[index];
 
 		while (currentNode != NULL)
 		{

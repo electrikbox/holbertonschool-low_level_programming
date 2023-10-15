@@ -16,6 +16,7 @@ int isSeparator(char c)
 	for (i = 0; sep[i] != '\0'; i++)
 		if (c == sep[i])
 			return (1);
+
 	return (0);
 }
 
